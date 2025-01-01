@@ -1,0 +1,12 @@
+{% extends "user_experience/base.html" %}
+
+{% block title %}
+    <title>Shop</title>
+{% endblock title %}
+
+{% block content %}
+    <h1>Specific Shop Page</h1>
+    <a href="{% url 'searching' %}">Go Back on Searching</a>
+    <a href="{% url 'iten_page' %}">Select Iten</a>
+
+{% endblock content %}
