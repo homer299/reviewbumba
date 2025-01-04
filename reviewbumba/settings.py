@@ -110,8 +110,7 @@ AUTH_PASSWORD_VALIDATORS = [
 AUTH_USER_MODEL = 'user_account.UserAccount'
 AUTHENTICATION_BACKENDS = ( 
     'django.contrib.auth.backends.AllowAllUsersModelBackend', 
-#    'user_account.backends.CaseInsensitiveModelBackend',
-    )
+)
 
 
 # Internationalization
