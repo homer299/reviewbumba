@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'shop_account',
     'buyer_account',
     'itens',
+    "user_account",
 ]
 
 MIDDLEWARE = [
@@ -104,6 +105,13 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+
+AUTH_USER_MODEL = 'user_account.UserAccount'
+AUTHENTICATION_BACKENDS = ( 
+    'django.contrib.auth.backends.AllowAllUsersModelBackend', 
+#    'user_account.backends.CaseInsensitiveModelBackend',
+    )
 
 
 # Internationalization

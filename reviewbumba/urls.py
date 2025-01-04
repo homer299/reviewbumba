@@ -26,6 +26,7 @@ urlpatterns = [
     path('shop_account/',include('shop_account.urls')),
     path('itens/',include('itens.urls')),
     path('user_experience/',include('user_experience.urls')),
+    path('user_account/',include('user_account.urls')),
 ]
 
 

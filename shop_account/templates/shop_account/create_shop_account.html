@@ -1,0 +1,39 @@
+{% extends "user_experience/base.html" %}
+
+{% block title %}
+    <title>Create Shop Account</title>
+{% endblock title %}
+
+{% block content %}
+<form action="" method="POST">
+    {% csrf_token %}
+    <label for="name">Name Of The Shop:</label>
+    <input type="text" name="name" id="id_name" required><br><br>
+
+    <label for="email">Email:</label>
+    <input type="email" name="email" id="id_email" required><br><br>
+
+    <label for="total_employees">Total number of employees:</label>
+    <input type="number" name="total_employees" id="id_total_employees" required><br><br>
+
+    <label for="location">Location:</label>
+    <input type="text" name="location" id="id_location" placeholder="City/State" required><br><br>
+
+    <label for="type_of_shop">Type of shop:</label>
+      <select id="id_type_of_shop" name="type_of_shop" required>
+        <option value="eletronics">Eletronics</option>
+        <option value="midia">Midia</option>
+        <option value="books">Books</option>
+        <option value="food">Food</option>
+      </select><br><br>
+
+    <label for="phone">Phone:</label>
+    <input type="text" id="id_phone" name="phone" placeholder="Ex.: (11) 912-345-678" required><br><br>
+
+    <label for="description">Description of the shop</label>
+    <textarea name="description" id="id_description" placeholder="Brief Shop Description" required></textarea><br><br>
+
+    <button type="submit">Register Shop</button>
+</form>
+
+{% endblock content %}

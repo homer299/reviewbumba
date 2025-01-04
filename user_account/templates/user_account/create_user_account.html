@@ -1,0 +1,38 @@
+{% extends "user_experience/base.html" %}
+
+{% block title %}
+    <title>Create User Account</title>
+{% endblock title %}
+
+{% block content %}
+<form action="" method="POST">
+    {% csrf_token %}
+    <label for="username">Username:</label>
+    <input type="text" name="username" id="username" required><br><br>
+
+    <label for="email">Email:</label>
+    <input type="email" name="email" id="email" required><br><br>
+
+    <label for="password">Password:</label>
+    <input type="password" name="password1" id="password1" required><br><br>
+
+    <label for="password">Password(again):</label>
+    <input type="password" name="password2" id="password2" required><br><br>
+        {% for field in registration_form %}
+        <p>
+        {% for error in field.errors %}
+        <p style="color: red">{{ error }}</p>
+        {% endfor %}
+        </p> 
+        {% endfor %}
+        {% if registration_form.non_field_errors %}
+        <div style="color: red">
+          <p>{{registration_form.non_field_errors}}</p>
+        </div>
+
+        {% endif %}
+
+    <button type="submit">Submit</button>
+</form>
+
+{% endblock content %}
