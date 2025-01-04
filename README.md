@@ -1,2 +1,2 @@
 # reviewbumba
-# Web app for online rating of shops itens selling
+# User authentication, login and logout
