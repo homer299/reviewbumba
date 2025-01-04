@@ -4,7 +4,9 @@ import datetime
 
 
 
-def home_view(request):
+def home_view(request, *args, **kwargs):
+    user = request.user
+    print(user)
     return render(request,'user_experience/home.html')
 
 

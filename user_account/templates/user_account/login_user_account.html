@@ -1,12 +1,34 @@
 {% extends "user_experience/base.html" %}
 
 {% block title %}
-    <title>Shop</title>
+    <title>Login User Account</title>
 {% endblock title %}
 
 {% block content %}
-    <h1>Specific Shop Page</h1>
-    <a href="{% url 'searching' %}">Go Back on Searching</a>
-    <a href="{% url 'iten_page' %}">Select Iten</a>
+<form action="" method="POST">
+    {% csrf_token %}
+
+    <label for="email">Email:</label>
+    <input type="email" name="email" id="email" required><br><br>
+
+    <label for="password">Password:</label>
+    <input type="password" name="password" id="password" required><br><br>
+
+        {% for field in login_form %}
+        <p>
+        {% for error in field.errors %}
+        <p style="color: red">{{ error }}</p>
+        {% endfor %}
+        </p>
+        {% endfor %}
+        {% if login_form.non_field_errors %}
+        <div style="color: red">
+        <p>{{login_form.non_field_errors}}</p>
+        </div>
+
+    {% endif %}
+
+    <button type="submit">Submit</button>
+</form>
 
 {% endblock content %}
