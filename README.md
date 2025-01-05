@@ -1,2 +1,2 @@
 # reviewbumba
-# User authentication, login and logout
+# For user profile page and user modification by the user
