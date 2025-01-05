@@ -1,0 +1,21 @@
+{% extends "user_experience/base.html" %}
+{% load static %}
+
+{% block title %}
+    <title>User Account Profile</title>
+{% endblock title %}
+
+{% block content %}
+
+<p>Email</p>
+{%  if is_self %}
+    <h5>{{email}}</h5>
+    <a href="{% url 'password_change' %}">Change password</a>
+{% else %}
+    <h5>**********</h5>
+{% endif %}
+
+<p>Username</p>
+<h5>{{username}}</h5>
+
+{% endblock content %}
