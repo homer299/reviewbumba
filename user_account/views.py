@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from django.contrib.auth import login, authenticate, logout
 
 from django.conf import settings
-from user_account.forms import UserAccoutRegistrationForm, UserAccountAuthenticationForm
+from user_account.forms import UserAccoutRegistrationForm, UserAccountAuthenticationForm,UserAccountUpdateForm
 from user_account.models import UserAccount
 
 
@@ -35,6 +35,26 @@ def UserAccountRegistrationView(request, *args, **kwargs):
         context['registration_form'] = form
     return render(request, 'user_account/create_user_account.html', context)
 
+
+def update_user_account_view(request, *args, **kwargs):
+    if not request.user.is_authenticated:
+        return redirect("login")
+    user_id = kwargs.get("user_id")
+    account = UserAccount.objects.get(pk=user_id)
+    if account.pk != request.user.pk:
+        return HttpResponse("Denied Access")
+    context = {}
+    if request.POST:
+        form = UserAccountUpdateForm(request.POST,instance=request.user)
+        if form.is_valid():
+            form.save()
+            return redirect("user_account_profile", user_id=account.pk)
+        else:
+            context['form'] = form
+    else:
+        form = UserAccountUpdateForm(instance=request.user)
+        context['form'] = form
+    return render(request, "user_account/update_user_account.html", context)
 
 
 

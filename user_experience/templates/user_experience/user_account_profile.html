@@ -11,6 +11,7 @@
 {%  if is_self %}
     <h5>{{email}}</h5>
     <a href="{% url 'password_change' %}">Change password</a>
+    <a href="{% url 'update_user_account' user_id=id %}">Update User Account</a>
 {% else %}
     <h5>**********</h5>
 {% endif %}

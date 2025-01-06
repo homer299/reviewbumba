@@ -1,0 +1,47 @@
+{% extends "user_experience/base.html" %}
+
+{% block title %}
+    <title>Update User Account</title>
+{% endblock title %}
+
+{% block content %}
+
+
+
+
+<form method="POST">
+    {% csrf_token %}
+    <h6>Email</h6>
+    <input type="email" name="email" id="id_input_email" placeholder="Email address" required autofocus value={{form.initial.email}}>
+    <h6>Username</h6>
+    <input type="text" name="username" id="id_input_username" class="form-control" placeholder="Username" required
+    value="{{form.initial.username}}">
+
+    {% for field in form %}
+    <p>
+    {% for error in field.errors %}
+    <p style="color: red">{{ error }}</p>
+    {% endfor %}
+    </p>
+    {% endfor %}
+    {% if form.non_field_errors %}
+    <div style="color: red">
+    <p>{{form.non_field_errors}}</p>
+    </div>
+
+    {% endif %}
+
+    <div class="d-flex flex-column mt-4">
+        <button class="mt-4 btn btn-primary flex-grow-1" type="submit">Save</button>
+    </div>
+    
+</form>
+
+            </div>
+          </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}
