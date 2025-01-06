@@ -1,2 +1,2 @@
 # reviewbumba
-# For user profile and update
+# For user profile and update page
